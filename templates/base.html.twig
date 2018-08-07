@@ -54,17 +54,17 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Game Category</a>
                     <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">ACT</a>
-                        <a class="dropdown-item" href="#">RPG</a>
-                        <a class="dropdown-item" href="#">MMORPG</a>
+                        {%for category in categories%}
+                        <a class="dropdown-item" href="./category.php?cid={{category.c_id}}">{{category.c_name}}</a>
+                        {%endfor%}
                     </div>
                 </li>
 
             </ul>
             <!-- Links -->
 
-            <form class="form-inline my-2 my-lg-0 ml-auto">
-                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+            <form class="form-inline my-2 my-lg-0 ml-auto" method="GET"action="./searchResult.php">
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search"name="str">
                 <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" type="submit">Search</button>
             </form>
         </div>
