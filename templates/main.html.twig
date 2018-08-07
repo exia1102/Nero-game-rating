@@ -1,0 +1,159 @@
+{%extends "base.html.twig"%}
+
+{%block css1%}
+
+<style type="text/css">
+    .btn-floating {
+    -webkit-box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+    width: 47px;
+    height: 47px;
+    position: relative;
+    z-index: 1;
+    vertical-align: middle;
+    display: inline-block;
+    overflow: hidden;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    margin: 10px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+.card .btn-action {
+    margin-top: -1.44rem;
+    margin-bottom: -1.44rem;
+}
+.btn-floating i {
+    font-size: 1.25rem;
+    line-height: 47px;
+
+}
+.btn-floating i {
+    display: inline-block;
+    width: inherit;
+    text-align: center;
+    color: #fff;
+}
+</style>
+
+{%endblock%}
+
+{%block content%}
+
+
+<div class="container-fluid p-0 w-0" style="display: block;">
+    <!--Carousel Wrapper-->
+    <!--Carousel Wrapper-->
+<div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel" >
+    <!--Indicators-->
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-2" data-slide-to="1"></li>
+        <li data-target="#carousel-example-2" data-slide-to="2"></li>
+    </ol>
+    <!--/.Indicators-->
+    <!--Slides-->
+    <div class="carousel-inner" role="listbox" >
+        <div class="carousel-item active">
+            <div class="view">
+                <img class="d-block w-100" style="max-height: 91vh;"  src="./img/ff15-banner.jpg" alt="First slide">
+                <div class="mask rgba-black-slight"></div>
+            </div>
+            <div class="carousel-caption float-left text-left pl-5" style="left: 0;">
+                <h3 class="h3-responsive">Light mask</h3>
+                <p class="mb-0">First text</p>
+                <div><span class="pr-4"><i class="fa fa-star pr-1"> </i>5  </span> <span><i class="fa fa-comments-o pr-1"></i>12</span></div>
+
+            </div>
+        </div>
+        <div class="carousel-item">
+            <!--Mask color-->
+            <div class="view">
+                <img class="d-block w-100" style="max-height: 91vh;" src="./img/ff15-banner.jpg" alt="Second slide">
+                <div class="mask rgba-black-slight"></div>
+            </div>
+            <div class="carousel-caption float-left text-left pl-5" style="left: 0;">
+                <h3 class="h3-responsive">Strong mask</h3>
+                <p class="mb-0">Secondary text</p>
+                <div><span class="pr-4"><i class="fa fa-star pr-1"> </i>5  </span> <span><i class="fa fa-comments-o pr-1"></i>12</span></div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <!--Mask color-->
+            <div class="view">
+                <img class="d-block w-100" style="max-height: 91vh;" src="./img/ff15-banner.jpg" alt="Third slide">
+                <div class="mask rgba-black-slight"></div>
+            </div>
+            <div class="carousel-caption float-left text-left pl-5" style="left: 0;">
+                <h3 class="h3-responsive ">Slight mask</h3>
+                <p class="mb-0">Third text</p>
+                <div><span class="pr-4"><i class="fa fa-star pr-1"> </i>5  </span> <span><i class="fa fa-comments-o pr-1"></i>12</span></div>
+            </div>
+        </div>
+    </div>
+    <!--/.Slides-->
+    <!--Controls-->
+    <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    <!--/.Controls-->
+</div>
+<!--/.Carousel Wrapper-->
+<!--Carousel Wrapper-->
+</div>
+
+<div class="container-fluid pt-4">
+    <div class="row">
+        <div class="col-md-3 col-sm-6">
+            <!-- Card -->
+            <div class="card">
+
+              <!-- Card image -->
+              <div class="view overlay">
+                <img class="card-img-top" src="./img/ff15.png" alt="Card image cap">
+                <a>
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>
+
+              <!-- Button -->
+              <a class="btn-floating btn-action ml-auto mr-4 mdb-color lighten-3 waves-effects waves-light"><i class="fa fa-chevron-right pl-1 "></i></a>
+
+              <!-- Card content -->
+              <div class="card-body">
+
+                <!-- Title -->
+                <h4 class="card-title">FF14</h4>
+                <hr>
+                <!-- Text -->
+                <p class="card-text">Laji game</p>
+
+              </div>
+
+              <!-- Card footer -->
+              <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                <ul class="list-unstyled list-inline font-small">
+<!--                   <li class="list-inline-item pr-2 white-text"><i class="fa fa-clock-o pr-1"></i>05/10/2015</li> -->
+                  <li class="list-inline-item pr-2"><a href="#" class="white-text"><i class="fa fa-comments-o pr-1"></i>12</a></li>
+                  <li class="list-inline-item"><a href="#" class="white-text"><i class="fa fa-star pr-1"> </i>5</a></li>
+                </ul>
+              </div>
+
+            </div>
+            <!-- Card -->
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+
+{%endblock%}
