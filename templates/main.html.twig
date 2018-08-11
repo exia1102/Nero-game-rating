@@ -60,8 +60,8 @@
     <div class="carousel-inner" role="listbox" >
         <div class="carousel-item active">
             <div class="view">
-                <img class="d-block w-100" style="max-height: 91vh;"  src="{{top3game[0].g_imgbanner}}" alt="First slide">
-                <div class="mask rgba-black-slight"></div>
+                <a href="./gameIntroduction.php?gid={{top3game[0].g_id}}"><img class="d-block w-100" style="max-height: 91vh;" src="{{top3game[0].g_imgbanner}}" alt="Second slide"></a>
+                <a href="./gameIntroduction.php?gid={{top3game[0].g_id}}"><div class="mask rgba-black-slight"></div></a>
             </div>
             <div class="carousel-caption float-left text-left pl-5" style="left: 0;">
                 <h3 class="h3-responsive">{{top3game[0].g_name}}</h3>
@@ -73,8 +73,8 @@
         <div class="carousel-item">
             <!--Mask color-->
             <div class="view">
-                <img class="d-block w-100" style="max-height: 91vh;" src="{{top3game[1].g_imgbanner}}" alt="Second slide">
-                <div class="mask rgba-black-slight"></div>
+                <a href="./gameIntroduction.php?gid={{top3game[1].g_id}}"><img class="d-block w-100" style="max-height: 91vh;" src="{{top3game[1].g_imgbanner}}" alt="Second slide"></a>
+                <a href="./gameIntroduction.php?gid={{top3game[1].g_id}}"><div class="mask rgba-black-slight"></div></a>
             </div>
             <div class="carousel-caption float-left text-left pl-5" style="left: 0;">
                 <h3 class="h3-responsive">{{top3game[1].g_name}}</h3>
@@ -85,8 +85,8 @@
         <div class="carousel-item">
             <!--Mask color-->
             <div class="view">
-                <img class="d-block w-100" style="max-height: 91vh;" src="{{top3game[2].g_imgbanner}}" alt="Third slide">
-                <div class="mask rgba-black-slight"></div>
+                <a href="./gameIntroduction.php?gid={{top3game[2].g_id}}"><img class="d-block w-100" style="max-height: 91vh;" src="{{top3game[2].g_imgbanner}}" alt="Second slide"></a>
+                <a href="./gameIntroduction.php?gid={{top3game[2].g_id}}"><div class="mask rgba-black-slight"></div></a>
             </div>
             <div class="carousel-caption float-left text-left pl-5" style="left: 0;">
                 <h3 class="h3-responsive ">{{top3game[2].g_name}}</h3>
@@ -116,7 +116,7 @@
         {% for game in games %}
         <div class="col-md-3 col-sm-6">
             <!-- Card -->
-            <div class="card">
+            <div class="card mt-2  mb-2">
 
               <!-- Card image -->
               <div class="view overlay">
@@ -127,7 +127,7 @@
               </div>
 
               <!-- Button -->
-              <a class="btn-floating btn-action ml-auto mr-4 mdb-color lighten-3 waves-effects waves-light" href="./gameintroduction.php?gid={{game.g_id}}"><i class="fa fa-chevron-right pl-1 "></i></a>
+              <a class="btn-floating btn-action ml-auto mr-4 mdb-color lighten-3 waves-effects waves-light" href="./gameIntroduction.php?gid={{game.g_id}}"><i class="fa fa-chevron-right pl-1 "></i></a>
 
               <!-- Card content -->
               <div class="card-body">
