@@ -245,6 +245,11 @@ iframe{
                         <!--/.Content column-->
 
                     </div>
+                    <div class="row">
+                    	<div class="alert alert-success mb-0 mx-auto mt-2 comment-thankyou" role="alert" style="display: none;">
+						  Thank you for Leaving comment!
+						</div>
+                </div>
                     <!--/.Third row-->
                 </div>
                 <!--/.Leave a reply form-->
@@ -280,36 +285,6 @@ iframe{
 	});
 	
 
-	// function getAllComment(){
- //    $.get("./comment.php",
- //      function(data){
- //        let str = `<div class="comments-list text-center text-md-left mb-5">
- //                    <div class="text-center mb-4">
- //                        <h3 class="font-weight-bold pt-3 mb-5">Comments </h3>
- //                    </div>`;
- //        $.each(JSON.parse(data),function(i,value){
- //          console.log(value);
- //          let item = `<div class="row mb-4">
- //                        <!--Image column-->
-
- //                        <div class="col-sm-1 col-12 mb-md-0 mb-3">
- //                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_S9DUg_S9CHf-DxgcNbxYzZmibzud95wxTQslnreREOxA1ch1" class="img-fluid avatar rounded-circle z-depth-2">
- //                        </div>
- //                        <!--/.Image column-->
-
- //                        <!--Content column-->
- //                        <div class="col-sm-11 col-12">
-                            
- //                            <p class="black-text">`+value.comment+`<hr>
- //                        </div>`;
- //          str = str +item;
- //        });
- //        str=str+"</div>";
- //        $("#comment-section").html(
- //          str
- //          );
- //      })
- //  }
 
 	$(".comment-submit").click(function(){
 		var gid=$(this).data('gid');
@@ -338,6 +313,8 @@ iframe{
           str
           );
       })
+		var comment=$("#form-mess").val("");
+		$(".comment-thankyou").css("display",'block');
   });
 
 
