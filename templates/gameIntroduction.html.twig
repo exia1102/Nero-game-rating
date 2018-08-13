@@ -92,7 +92,7 @@ iframe{
                                         <i class="fa fa-star left "></i>
                                         <span class="hidden-md-down ">Score</span>
                                     </a>
-                                    <span class="counter ">{{game.g_totalscore/game.num_user}}</span>
+                                    <span class="counter game-score">{{game.g_totalscore/game.num_user}}</span>
 
                                     <!--Comments-->
                                     <a class="btn btn-blue-grey ">
@@ -155,76 +155,59 @@ iframe{
                     <!--Name-->
                     <h4 class="h3-responsive text-center font-weight-bold dark-grey-text">Click number to rate this game</h4>
                     <hr>
-                    <div class="row h-100 w-100">
+                    <div class="row w-100">
                         <!--Avatar-->
                         <div class="btn-group text-center mx-auto" role="group" aria-label="First group">
-					        <button type="button" class="btn btn-outline-mdb-color waves-effect"data-score=20>20</button>
-						    <button type="button" class="btn btn-outline-mdb-color waves-effect"data-score=40>40</button>
-						    <button type="button" class="btn btn-outline-mdb-color waves-effect"data-score=60>60</button>
-						    <button type="button" class="btn btn-outline-mdb-color waves-effect"data-score=80>80</button>
-						    <button type="button" class="btn btn-outline-mdb-color waves-effect"data-score=100>100</button>
+					        <button type="button" class="btn btn-outline-mdb-color waves-effect"data-score=20 data-gid={{game.g_id}}>20</button>
+						    <button type="button" class="btn btn-outline-mdb-color waves-effect"data-score=40 data-gid={{game.g_id}}>40</button>
+						    <button type="button" class="btn btn-outline-mdb-color waves-effect"data-score=60 data-gid={{game.g_id}}>60</button>
+						    <button type="button" class="btn btn-outline-mdb-color waves-effect"data-score=80 data-gid={{game.g_id}}>80</button>
+						    <button type="button" class="btn btn-outline-mdb-color waves-effect"data-score=100 data-gid={{game.g_id}}>100</button>
 					    </div>
                     </div>
+                    <div class="row">
+                    	<div class="alert alert-success mb-0 mx-auto mt-2 rating-thankyou" role="alert" style="display: none;">
+						  Thank you for rating this game!
+						</div>
                 </div>
 
             </section>
             <!--/.Author box-->
 
             <!--Section: Comments list-->
-            <section class="mb-4 pt-5 wow fadeIn" data-wow-delay="0.3s">
-
-                <!--Main wrapper-->
-                <div class="comments-list text-center text-md-left mb-5">
+            <section class="mb-4 pt-5 wow fadeIn"  data-wow-delay="0.3s">
+            	<div id="comment-section">
+            		<div class="comments-list text-center text-md-left mb-5">
                     <div class="text-center mb-4">
                         <h3 class="font-weight-bold pt-3 mb-5">Comments </h3>
                     </div>
-                    <!--First row-->
+                    {%for comment in comments%}
                     <div class="row mb-4">
                         <!--Image column-->
+
                         <div class="col-sm-1 col-12 mb-md-0 mb-3">
-                            
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_S9DUg_S9CHf-DxgcNbxYzZmibzud95wxTQslnreREOxA1ch1" class="img-fluid avatar rounded-circle z-depth-2">
                         </div>
                         <!--/.Image column-->
 
                         <!--Content column-->
                         <div class="col-sm-11 col-12">
                             
-                            <p class="grey-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+                            <p class="black-text">{{comment.comment}}</p>
 
                                 <hr>
                         </div>
                         <!--/.Content column-->
 
                     </div>
-                    <div class="row mb-4">
-                        <!--Image column-->
-                        <div class="col-sm-1 col-12 mb-md-0 mb-3">
-                            
-                        </div>
-                        <!--/.Image column-->
-
-                        <!--Content column-->
-                        <div class="col-sm-11 col-12">
-                            
-                            <p class="grey-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
-
-                                <hr>
-                        </div>
-                        <!--/.Content column-->
-
-                    </div>
-                    <!--/.First row-->
-
-
-
-
-
-                    <!--/.Third row-->
+                  	{%endfor%}
+                    
                 </div>
+
+
+            	</div>
+                <!--Main wrapper-->
+                
                 <!--/.Main wrapper-->
 
             </section>
@@ -257,7 +240,7 @@ iframe{
                         </div>
 
                         <div class="col-md-12 text-center mt-4">
-                            <button class="btn btn-pink btn-rounded">Submit</button>
+                            <button class="btn btn-pink btn-rounded comment-submit" data-gid={{game.g_id}}>Submit</button>
                         </div>
                         <!--/.Content column-->
 
@@ -275,10 +258,93 @@ iframe{
     <!--Main Layout-->
 
 
+
     
+{%endblock%}
+
+{%block script%}
 
 
+
+<script type="text/javascript">
+	$(".btn-outline-mdb-color").click(function(){
+
+		var gid=$(this).data('gid');
+		var score=$(this).data('score');
+		var url="./score.php?gid="+gid+"&score="+score;
+		$.get(url,function(data){
+			$(".game-score").text(data);
+		})
+		$(".btn-outline-mdb-color").attr("disabled",true);
+		$(".rating-thankyou").css("display",'block')
+	});
+	
+
+	// function getAllComment(){
+ //    $.get("./comment.php",
+ //      function(data){
+ //        let str = `<div class="comments-list text-center text-md-left mb-5">
+ //                    <div class="text-center mb-4">
+ //                        <h3 class="font-weight-bold pt-3 mb-5">Comments </h3>
+ //                    </div>`;
+ //        $.each(JSON.parse(data),function(i,value){
+ //          console.log(value);
+ //          let item = `<div class="row mb-4">
+ //                        <!--Image column-->
+
+ //                        <div class="col-sm-1 col-12 mb-md-0 mb-3">
+ //                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_S9DUg_S9CHf-DxgcNbxYzZmibzud95wxTQslnreREOxA1ch1" class="img-fluid avatar rounded-circle z-depth-2">
+ //                        </div>
+ //                        <!--/.Image column-->
+
+ //                        <!--Content column-->
+ //                        <div class="col-sm-11 col-12">
+                            
+ //                            <p class="black-text">`+value.comment+`<hr>
+ //                        </div>`;
+ //          str = str +item;
+ //        });
+ //        str=str+"</div>";
+ //        $("#comment-section").html(
+ //          str
+ //          );
+ //      })
+ //  }
+
+	$(".comment-submit").click(function(){
+		var gid=$(this).data('gid');
+		var comment=$("#form-mess").val();
+		var url="./comment.php?gid="+gid+"&comment="+comment;
+		$.get(url,function(data){
+			let str = `<div class="comments-list text-center text-md-left mb-5">
+                    <div class="text-center mb-4">
+                        <h3 class="font-weight-bold pt-3 mb-5">Comments </h3>
+                    </div>`;
+        		$.each(JSON.parse(data),function(i,value){
+          		console.log(value);
+          			let item = `<div class="row mb-4">
+ 
+                        <div class="col-sm-1 col-12 mb-md-0 mb-3">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_S9DUg_S9CHf-DxgcNbxYzZmibzud95wxTQslnreREOxA1ch1" class="img-fluid avatar rounded-circle z-depth-2">
+                        </div>
+                        <div class="col-sm-11 col-12">
+                            
+                            <p class="black-text">`+value.comment+`<hr>
+                        </div></div>`;
+          str = str +item;
+        });
+        str=str+"</div>";
+        $("#comment-section").html(
+          str
+          );
+      })
+  });
+
+
+
+</script>
 
 
 
 {%endblock%}
+

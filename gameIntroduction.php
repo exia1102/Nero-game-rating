@@ -13,6 +13,7 @@ if($_GET&&array_key_exists('gid', $_GET)){
 	$game=$db->getGameById($gid);
 	$categoryName=array();
 	$categoryColor=array();
+	$comment=$db->getAllComment($gid);
 	foreach ($g_categories as $value) {
 		$cid=$value['c_id'];
 		$category[]=$db->getCategoryByCid($cid);
@@ -24,12 +25,7 @@ if($_GET&&array_key_exists('gid', $_GET)){
 		// 		$categoryColor[]=$category['c_color'];
 		// 	}
 		// }
-
 	}
-
-
-
-
 }else{
 	$game=null;
 	$g_categories=null;
@@ -44,6 +40,7 @@ echo $twig->render('gameIntroduction.html.twig', //templete file
 		"category"=>$category,
 		"game"=>$game,
 		"categories"=>$categories,
+		"comments"=>$comment,
 	)
 );
 

@@ -100,6 +100,24 @@ class database{
 
 
 	}
+	public function getAllComment($gid){
+		$stmt=$this->getInstance()->prepare("SELECT * from comment where g_id=:gid");
+		$stmt->execute(
+			array(
+				":gid"=>$gid,
+			)
+		);
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+	}
+	public function addComment($gid,$comment){
+		$stmt=$this->getInstance()->prepare("INSERT INTO comment (g_id,comment) values(:gid,:comment)"); 
+		$stmt->execute(
+			array(
+				":gid"=>$gid,
+				":comment"=>$comment,
+			)
+		);	
+	}
 
 
 
