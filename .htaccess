@@ -1,0 +1,4 @@
+RewriteEngine on #Turn on the rewriting engine
+RewriteRule ^gameIntroduction-([0-9]*)$ gameIntroduction.php?gid=$1 [NC,L]
+RewriteRule ^category-([0-9]*)$ category.php?cid=$1 [NC,L]
+RewriteRule ^comment-([0-9]*)$ comment.php?gid=$1 [NC,L]

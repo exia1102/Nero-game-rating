@@ -38,6 +38,7 @@
     text-align: center;
     color: #fff;
 }
+
 </style>
 
 {%endblock%}
@@ -111,6 +112,20 @@
 <!--Carousel Wrapper-->
 </div>
 
+
+<hr>
+
+<div class="container-fluid nav-category">
+    <ul class="nav nav-tabs">
+        {%for category in categories%}
+    <li class="nav-item">
+    <a class="nav-link" data-cid={{category.c_id}} style="color: black" href="./category-{{category.c_id}}">{{category.c_name}}</a>
+  </li>
+        {%endfor%}
+</ul>
+</div>
+
+
 <div class="container-fluid pt-4">
     <div class="row">
         {% for game in games %}
@@ -127,7 +142,7 @@
               </div>
 
               <!-- Button -->
-              <a class="btn-floating btn-action ml-auto mr-4 mdb-color lighten-3 waves-effects waves-light" href="./gameIntroduction.php?gid={{game.g_id}}"><i class="fa fa-chevron-right pl-1 "></i></a>
+              <a class="btn-floating btn-action ml-auto mr-4 mdb-color lighten-3 waves-effects waves-light" href="./gameIntroduction-{{game.g_id}}"><i class="fa fa-chevron-right pl-1 "></i></a>
 
               <!-- Card content -->
               <div class="card-body">
@@ -158,5 +173,27 @@
 </div>
 
 <!-- Footer -->
+
+{%endblock%}
+
+
+{%block script%}
+
+
+<script type="text/javascript">
+        
+var url= window.location.href;
+console.log(url);
+var key= url.indexOf("-");
+var result=url.substr(key+1,url.length);
+// if($(".nav-link").data("cid")==result){
+$("a[data-cid="+result+"]").addClass("active");
+var height = $(".nav-category").offset().top;
+$('html, body').animate({  
+      scrollTop: height
+        }, 2000)
+
+</script>
+
 
 {%endblock%}

@@ -117,7 +117,7 @@ iframe{
 
                             <div class="mt-4 d-flex justify-content-end">
                             	{%for category in category%}
-                                <a href="./category.php?cid={{category.c_id}}" type="button" class="btn btn-outline-{{category.c_color}} waves-effect">{{category.c_name}}</a>
+                                <a href="./category?{{category.c_id}}" type="button" class="btn btn-outline-{{category.c_color}} waves-effect">{{category.c_name}}</a>
                                 {%endfor%}
                             </div>
 
