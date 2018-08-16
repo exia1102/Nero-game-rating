@@ -289,6 +289,9 @@ iframe{
 	$(".comment-submit").click(function(){
 		var gid=$(this).data('gid');
 		var comment=$("#form-mess").val();
+		if(comment==""){
+			return false;
+		}
 		var url="./comment.php?gid="+gid+"&comment="+comment;
 		$.get(url,function(data){
 			let str = `<div class="comments-list text-center text-md-left mb-5">

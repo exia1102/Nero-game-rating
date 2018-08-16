@@ -191,7 +191,16 @@ $("a[data-cid="+result+"]").addClass("active");
 var height = $(".nav-category").offset().top;
 $('html, body').animate({  
       scrollTop: height
-        }, 2000)
+        }, 0)
+
+var sTop=document.body.scrollTop+document.documentElement.scrollTop;
+var heightTarget = $(".nav-category").offset().top;
+if(sTop!=0){
+    $(".card").attr("webkit-animation-duration","6s");
+    $(".card").addClass("flipInX");
+    $(".card").addClass("animated");
+
+}
 
 </script>
 
