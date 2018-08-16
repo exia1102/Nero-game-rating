@@ -116,6 +116,12 @@ class database{
 				":gid"=>$gid,
 				":comment"=>$comment,
 			)
+		);
+		$stmt=$this->getInstance()->prepare("UPDATE gameInfo set comment_number=comment_number+1 where g_id=:gid"); 
+		$stmt->execute(
+			array(
+				":gid"=>$gid,
+			)
 		);	
 	}
 

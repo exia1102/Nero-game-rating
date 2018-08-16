@@ -66,7 +66,7 @@
             <div class="carousel-caption float-left text-left pl-5" style="left: 0;">
                 <h3 class="h3-responsive">{{top3game[0].g_name}}</h3>
                 <p class="mb-0">{{top3game[0].g_summary}}</p>
-                <div><span class="pr-4"><i class="fa fa-star pr-1"> </i>{{top3game[0].g_totalscore/top3game[0].num_user}}  </span> <span><i class="fa fa-comments-o pr-1"></i>12</span></div>
+                <div><span class="pr-4"><i class="fa fa-star pr-1"> </i>{{(top3game[0].g_totalscore/top3game[0].num_user)|number_format}}  </span> <span><i class="fa fa-comments-o pr-1"></i>{{top3game[0].comment_number}}</span></div>
 
             </div>
         </div>
@@ -79,7 +79,7 @@
             <div class="carousel-caption float-left text-left pl-5" style="left: 0;">
                 <h3 class="h3-responsive">{{top3game[1].g_name}}</h3>
                 <p class="mb-0">{{top3game[1].g_summary}}</p>
-                <div><span class="pr-4"><i class="fa fa-star pr-1"> </i>{{top3game[1].g_totalscore/top3game[1].num_user}}  </span> <span><i class="fa fa-comments-o pr-1"></i>12</span></div>
+                <div><span class="pr-4"><i class="fa fa-star pr-1"> </i>{{(top3game[1].g_totalscore/top3game[1].num_user)|number_format}}  </span> <span><i class="fa fa-comments-o pr-1"></i>{{top3game[1].comment_number}}</span></div>
             </div>
         </div>
         <div class="carousel-item">
@@ -91,7 +91,7 @@
             <div class="carousel-caption float-left text-left pl-5" style="left: 0;">
                 <h3 class="h3-responsive ">{{top3game[2].g_name}}</h3>
                 <p class="mb-0">{{top3game[2].g_summary}}</p>
-                <div><span class="pr-4"><i class="fa fa-star pr-1"> </i>{{top3game[2].g_totalscore/top3game[2].num_user}}  </span> <span><i class="fa fa-comments-o pr-1"></i>12</span></div>
+                <div><span class="pr-4"><i class="fa fa-star pr-1"> </i>{{(top3game[2].g_totalscore/top3game[2].num_user)|number_format}}  </span> <span><i class="fa fa-comments-o pr-1"></i>{{top3game[2].comment_number}}</span></div>
             </div>
         </div>
     </div>
@@ -159,8 +159,8 @@
                 <ul class="list-unstyled list-inline font-small">
         
 <!--                   <li class="list-inline-item pr-2 white-text"><i class="fa fa-clock-o pr-1"></i>05/10/2015</li> -->
-                  <li class="list-inline-item pr-2"><a href="#" class="white-text"><i class="fa fa-comments-o pr-1"></i>12</a></li>
-                  <li class="list-inline-item"><a href="#" class="white-text"><i class="fa fa-star pr-1"> </i>{{game.g_totalscore/game.num_user}}</a></li>
+                  <li class="list-inline-item pr-2"><a href="#" class="white-text"><i class="fa fa-comments-o pr-1"></i>{{game.comment_number}}</a></li>
+                  <li class="list-inline-item"><a href="#" class="white-text"><i class="fa fa-star pr-1"> </i>{{(game.g_totalscore/game.num_user)|number_format}}</a></li>
                 </ul>
               </div>
 

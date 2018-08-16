@@ -92,14 +92,14 @@ iframe{
                                         <i class="fa fa-star left "></i>
                                         <span class="hidden-md-down ">Score</span>
                                     </a>
-                                    <span class="counter game-score">{{game.g_totalscore/game.num_user}}</span>
+                                    <span class="counter game-score">{{(game.g_totalscore/game.num_user)|number_format}}</span>
 
                                     <!--Comments-->
                                     <a class="btn btn-blue-grey ">
                                         <i class="fa fa-comments-o left "></i>
                                         <span class="hidden-md-down ">Comments</span>
                                     </a>
-                                    <span class="counter ">18</span>
+                                    <span class="counter ">{{game.comment_number}}</span>
 
                                 </div>
                                 <!--Social shares-->
